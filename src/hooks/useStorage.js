@@ -4,6 +4,8 @@ const useStorage = () => {
   // Buscar items Salvos
   const getItem = async (key) => {
     try {
+      const passwords = await AsyncStorage.getItem(key)
+      return JSON.parse(passwords) || []
     } catch (error) {
       console.log("Erro ao buscar", error);
       return [];
